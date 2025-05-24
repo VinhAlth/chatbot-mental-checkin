@@ -7,7 +7,7 @@ Built using **Vistral 7B**, this chatbot delivers a safe, empathetic, and struct
 
 ## 🎬 Demo
 
-![Chatbot Demo](video.gif)
+![Chatbot Demo](demo.gif)
 
 ---
 
