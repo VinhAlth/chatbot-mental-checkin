@@ -1,0 +1,242 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mental Health Chatbot</title>
+    <link rel="shortcut icon" href="static/img/mhcicon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body> 
+    <!-- partial:index.partial.html -->
+    <section class="msger">
+      <header class="msger-header">
+        <div class="msger-header-title">
+          <i class="fas fa-love"></i> Mental Health Bot <i class="fas fa-love"></i>
+        </div>
+      </header>
+      <main class="msger-chat" id="msger-chat">
+        <!-- Messages will be added here dynamically -->
+        <div class="msg left-msg">
+          <div class="msg-img" style="background-image: url(static/img/mhcicon.png)"></div>
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">Mental Health Bot</div>
+              <div class="msg-info-time">Bây giờ</div>
+            </div>
+            <div class="msg-text">
+              <!-- 1. Bạn có cảm thấy không có niềm vui thích nào trong học tập hay làm việc không?. <br> Đánh giá trên thang điểm từ 0 đến 3, trong đó 0 là "không hề" và 3 là "rất nhiều". -->
+              <b> 1. Bạn có thấy ít quan tâm, hứng thú khi học tập không? </b> <br> Bạn có thể chia sẻ cảm nhận của mình về câu hỏi này không?
+            </div>
+          </div>
+        </div>
+      </main>
+      <form class="msger-inputarea" id="msger-form">
+        <input type="text" class="msger-input" id="textInput" placeholder="Hãy nhập câu trả lời của bạn...">
+        <button type="submit" class="msger-send-btn">Gửi</button>
+      </form>
+    </section>
+  <section class="info-form">
+      <h2>Thông tin cá nhân</h2>
+      <form id="info-form" action="/save_info" method="post">
+        <div class="form-group">
+          <label for="student-id">Mã số sinh viên:</label>
+          <input type="text" id="student-id" name="student-id">
+        </div>
+        <div class="form-group">
+          <label for="full-name">Họ và tên:</label>
+          <input type="text" id="full-name" name="full-name">
+        </div>
+        <div class="form-group">
+          <label for="birth-year">Năm sinh:</label>
+          <input type="text" id="birth-year" name="birth-year">
+        </div>
+        <div class="form-group">
+          <label for="class">Lớp:</label>
+          <input type="text" id="class" name="class">
+        </div>
+        <button type="submit">Xác nhận thông tin</button>
+      </form>
+  </section>
+    <!-- partial -->
+    <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>  
+    <script>
+      const msgerForm = get(".msger-inputarea");
+      const msgerInput = get(".msger-input");
+      const msgerChat = get(".msger-chat");
+      const BOT_IMG = "static/img/mhcicon.png";
+      const PERSON_IMG = "static/img/person.png";
+      const BOT_NAME = "Chat Bot";
+      const PERSON_NAME = "You";
+      
+      
+      
+      function appendMessage(name, img, side, text) {
+        const msgHTML = `
+          <div class="msg ${side}-msg">
+            <div class="msg-img" style="background-image: url(${img})"></div>
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name">${name}</div>
+                <div class="msg-info-time">${formatDate(new Date())}</div>
+              </div>
+              <div class="msg-text">${text}</div>
+            </div>
+          </div>
+        `;
+        msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+        msgerChat.scrollTop += 500;
+      }
+      
+
+    localStorage.clear()
+    // Tạo một userID mới và lưu vào Local Storage
+    var defaultUserData = {
+        'start': 0,
+        'score': [],
+        'state': true,
+        'check_info': false,
+        'student_id': "",
+        'full_name': "",
+        'birth_year': "",
+        'class_name': ""
+    };
+    localStorage.setItem("userData", JSON.stringify(defaultUserData));
+    
+    // Hàm tạo một userID ngẫu nhiên
+    function generateUserID() {
+        return 'user_' + Math.random().toString(36).substr(2, 9);
+    }
+    
+    // Tạo userID mới
+    var userID = generateUserID();
+    localStorage.setItem("userID", userID);
+    alert("Xin chào các bạn câu lạc bộ AI, những siêu trí tuệ tương lai nhé >");
+    
+  
+      // Hàm tạo một userID ngẫu nhiên
+      function generateUserID() {
+        return 'user_' + Math.random().toString(36).substr(2, 9);
+      }
+  
+      // Bắt sự kiện trước khi thoát trang hoặc load lại trang
+      window.addEventListener('beforeunload', function(event) {
+            // Xóa userID khỏi Local Storage
+            var userID = localStorage.getItem("userID");
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/unload', true); // Đã chỉnh sửa thành '/unload'
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('userID=' + userID); // Đã sửa từ 'user_id' thành 'userID'
+        
+            localStorage.removeItem("userID");
+        });
+    
+      // Bắt sự kiện trước khi thoát trang hoặc load lại trang
+      let canSendMessage = true; // Biến để kiểm soát khả năng gửi tin nhắn mới
+
+  msgerForm.addEventListener("submit", event => {
+    event.preventDefault();
+    
+    if (!canSendMessage) return; // Nếu không thể gửi tin nhắn mới, thoát khỏi hàm
+    
+    const msgText = msgerInput.value;
+    if (!msgText) return;
+    
+    appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+    msgerInput.value = "";
+    botResponse(msgText);
+    
+    // Vô hiệu hóa khả năng gửi tin nhắn mới
+    canSendMessage = false;
+    // Vô hiệu hóa nút gửi
+    document.getElementById("msger-form").querySelector(".msger-send-btn").disabled = true;
+  });
+
+  function botResponse(rawText) {
+    var userData = JSON.parse(localStorage.getItem("userData"));
+    $.ajax({
+      url: "/get",
+      method: "GET",
+      data: {
+        msg: rawText,
+        user_id: userID,
+        info: JSON.stringify(userData)
+      },
+      success: function(data) {
+        const msgText = data;
+        appendMessage(BOT_NAME, BOT_IMG, "left", msgText.conv);
+        localStorage.setItem("userData", JSON.stringify(msgText.user_info));
+        
+        // Cho phép gửi tin nhắn mới sau khi nhận được phản hồi từ máy chủ
+        canSendMessage = true;
+        // Kích hoạt lại nút gửi
+        document.getElementById("msger-form").querySelector(".msger-send-btn").disabled = false;
+      },
+      error: function(xhr, status, error) {
+        console.error("Error:", error);
+      }
+    });
+  }
+
+    
+    
+      function get(selector, root = document) {
+        return root.querySelector(selector);
+      }
+    
+      function formatDate(date) {
+        const h = "0" + date.getHours();
+        const m = "0" + date.getMinutes();
+        return `${h.slice(-2)}:${m.slice(-2)}`;
+      }
+      document.getElementById("info-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        var form = event.target;
+        
+        var formData = new FormData(form);
+        
+        fetch(form.action, {
+          method: form.method,
+          body: formData
+        })
+        .then(response => {
+          // Kiểm tra phản hồi từ server
+          if(response.ok) {
+            // Nếu thành công, lấy dữ liệu từ form và cập nhật vào userData từ localStorage
+            var userData = JSON.parse(localStorage.getItem("userData"));
+            var studentID = formData.get("student-id");
+            var fullName = formData.get("full-name");
+            var birthYear = formData.get("birth-year");
+            var className = formData.get("class");
+      
+            // Cập nhật thông tin trong userData
+            userData.student_id = studentID;
+            userData.full_name = fullName;
+            userData.birth_year = birthYear;
+            userData.class_name = className;
+            userData.check_info = true; // Đánh dấu rằng thông tin đã được cập nhật
+      
+            // Lưu userData vào localStorage
+            localStorage.setItem("userData", JSON.stringify(userData));
+            
+            // Hiển thị thông báo thành công
+            console.log("Thông tin đã được lưu vào localStorage.");
+          } else {
+            // Hiển thị thông báo lỗi nếu có lỗi từ server
+            console.error("Đã có lỗi xảy ra khi gửi thông tin.");
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      });
+      
+      
+    </script>
+    
+  </body>
+  </html>
