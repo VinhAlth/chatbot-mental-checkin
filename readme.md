@@ -7,9 +7,7 @@ Built using **Vistral 7B**, this chatbot delivers a safe, empathetic, and struct
 
 ## 🎬 Demo
 
-![Demo GIF](https://github.com/VinhAlth/chatbot-mental-checkin/assets/your-gif-id/demo.gif)
-<!-- Or YouTube -->
-[🎥 Watch Demo on YouTube](https://www.youtube.com/watch?v=your-demo-link)
+![Chatbot Demo](video.gif)
 
 ---
 
@@ -27,21 +25,21 @@ This chatbot guides users through the **PHQ-9 questionnaire**, a standard clinic
 
 ## 🌟 Key Features
 
-- 💬 **Empathetic Dialogue** using Vistral 7B and NLP best practices
-- 🧠 **Validated Psychological Framework** (PHQ-9 logic)
-- 🔐 **Private Scoring** with no exposure of sensitive data
-- 🪷 **Wellness Suggestions** (e.g., mindfulness, journaling)
-- 🚨 **Professional Referral** for high-risk cases
-- 🖥️ User-friendly frontend for self-check-in
+- 💬 Empathe powered by Vistral 7B and modern
+- 🧠 Validated Psychological Framework (PHQ-9 logic)
+- 🔐 Private Scoring with no exposure of sensitive data
+- 🪷 Wel (e.g., mindfulness, journaling, jogging)
+- 🚨 Professional Referral for high-risk cases
+- 🖥️ User-friendly frontend for easy self-check-in
 
 ---
 
 ## 💡 Use Cases
 
-- 🏫 Mental health check-in tools for **students**
-- 🏢 Corporate wellness apps for **employees**
-- 🧘 Self-care assistant for **individual reflection**
-- 🧪 Psychology research assistant for **human-AI interaction studies**
+- 🧑‍🎓 **Students** in need of periodic mental wellness check-ins  
+- 🏢 **Employees** accessing corporate mental health support systems  
+- 🧘 **Individuals** seeking self-guided mental health reflection or early detection  
+- 🏫 **Schools & Universities** offering proactive support to learners  
 
 ---
 
