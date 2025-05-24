@@ -45,17 +45,16 @@ This chatbot guides users through the **PHQ-9 questionnaire**, a standard clinic
 
 ## ⚙️ Tech Stack
 
-| Component         | Technology                 |
-|------------------|----------------------------|
-| Language Model    | `Vistral 7B`               |
-| Backend           | `Python`, `FastAPI`        |
-| Frontend          | `Streamlit` / `React`      |
-| LLM Orchestration | `LangChain`                |
-| NLP Tools         | `spaCy`, `Transformers`    |
-| Scoring Engine    | `PHQ-9` (custom logic)     |
-| Deployment        | `Docker`, `Railway` / `GCP`|
+<div align="center">
 
----
+| Component         | Technology                 |
+|:----------------:|:--------------------------:|
+| Language Model   | `Vistral 7B`               |
+| Backend          | `Python`, `FastAPI`        |
+| Frontend         | `Html`, `Css`              |
+
+</div>
+
 
 ## 🚀 Quick Start
 
@@ -63,7 +62,7 @@ This chatbot guides users through the **PHQ-9 questionnaire**, a standard clinic
 git clone https://github.com/VinhAlth/chatbot-mental-checkin.git
 cd chatbot-mental-checkin
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+python main.py
 ````
 
 Open your browser and visit: [http://localhost:8000](http://localhost:8000)
