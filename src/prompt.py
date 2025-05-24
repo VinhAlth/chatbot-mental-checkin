@@ -28,7 +28,7 @@ prompt_assess = [
 
 
 dass21 = [
-    "### Các câu hỏi DASS-21:",
+    "### Các câu hỏi PHQ9:",
     "<b>1. Bạn có thấy ít quan tâm, hứng thú khi học tập không?</b>",
     "<b>2. Bạn có cảm thấy chán nản kiệt sức, hay tuyệt vọng không?</b>",
     "<b>3. Bạn có gặp khó khăn trong việc ngủ, ngủ ít hoặc ngủ quá nhiều không?</b>",
