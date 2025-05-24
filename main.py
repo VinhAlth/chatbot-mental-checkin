@@ -10,7 +10,7 @@ import torch
 app = Flask(__name__)
 
 # Thiết lập cấu hình cho session
-app.config['SECRET_KEY'] = 'nhideptrai'
+app.config['SECRET_KEY'] = 'abc123'
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
 app.static_folder = 'static'
