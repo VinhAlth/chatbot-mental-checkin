@@ -28,7 +28,7 @@ This chatbot guides users through the **PHQ-9 questionnaire**, a standard clinic
 - 💬 Empathe powered by Vistral 7B and modern
 - 🧠 Validated Psychological Framework (PHQ-9 logic)
 - 🔐 Private Scoring with no exposure of sensitive data
-- 🪷 Wel (e.g., mindfulness, journaling, jogging)
+- 🪷 Wellness Suggestions (e.g., mindfulness, journaling, jogging)
 - 🚨 Professional Referral for high-risk cases
 - 🖥️ User-friendly frontend for easy self-check-in
 
