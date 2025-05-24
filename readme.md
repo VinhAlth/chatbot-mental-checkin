@@ -1,8 +1,3 @@
-Dưới đây là phiên bản **hoàn thiện** của `README.md` cho dự án **Chatbot hỗ trợ đánh giá tâm lý** – bao gồm phần giới thiệu, công nghệ, hướng dẫn sử dụng, contributor, và **video demo (GIF hoặc YouTube)**. Bạn có thể dùng trực tiếp cho GitHub:
-
----
-
-````markdown
 # 🧠 AI Mental Health Support Chatbot
 
 A conversational AI system designed to assist with **preliminary psychological assessments**, mental health screening, and personalized well-being support.  
@@ -144,15 +139,3 @@ chatbot-mental-checkin/
 ---
 
 > ⚠️ **Disclaimer**: This chatbot is a research prototype and does not offer professional medical advice. If you're experiencing a mental health crisis, please contact a licensed therapist or local emergency services.
-
-```
-
----
-
-✅ **Gợi ý tiếp theo**:  
-Bạn có thể:
-- Upload **GIF demo** vào thư mục `demo/` trong GitHub và dùng GitHub CDN để lấy link.
-- Hoặc, nếu bạn có video, hãy upload nó lên **YouTube** và thay thế link tương ứng.
-
-Bạn muốn mình tạo ảnh hoặc GIF minh họa cho hội thoại chatbot luôn không?
-```
