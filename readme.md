@@ -89,18 +89,15 @@ your_project/
 ├── analyse.py                      # Analyzes user results after completing the questionnaire
 ├── main.py                        # Entry point to run the Flask web application
 ├── patient_infor.txt              # Temporary storage for patient information during a session
-│
 ├── predict.py                     # Process data from CSV, predict, and save to CSV
-│
 ├── readme.md                      # Project documentation (overview, setup, usage)
-│
 └── requirement.txt                # List of required Python packages (install via `pip install -r`)
 
 ```
 
 ---
 
-## 🧪 Sample Conversation
+## Sample Conversation
 
 > 👤 **User**: I don’t feel interested in anything these days.
 > 🤖 **Chatbot**: I’m really sorry you’re feeling that way. It’s okay to feel overwhelmed. Could you tell me how often you've felt like this over the last 2 weeks?
@@ -118,32 +115,7 @@ your_project/
 
 * 📋 Based on **validated psychological instruments** (PHQ-9)
 * 🧠 Includes **well-being-first design** for interaction safety
-* 🔐 All data is anonymized, not stored by default
-* ⚠️ Clearly states **non-diagnostic disclaimer**
+* 🔐 All data is anonymized, not stored by default    
 
----
-
-## 📚 References
-
-* Kroenke, K., Spitzer, R. *The PHQ-9: Validity of a Brief Depression Severity Measure*
-* OpenAI Vistral / LLM framework
-* LangChain & Hugging Face Transformers
-
----
-
-## 👨‍💻 Author & Supervision
-
-* 👨‍💻 **Nguyễn Quốc Vinh** – LLM Developer & Dialogue Designer
-* 👨‍🏫 Supervised by Dr. Huỳnh Ngọc Tính – SIU AI Lab
-* 🧪 Internship Project – June–September 2024
-
----
-
-## 📬 Contact
-
-* ✉️ Email: [quoctinvinh@gmail.com](mailto:quoctinvinh@gmail.com)
-* 🔗 LinkedIn: [linkedin.com/in/quoctinvinh](https://linkedin.com/in/quoctinvinh)
-
----
 
 > ⚠️ **Disclaimer**: This chatbot is a research prototype and does not offer professional medical advice. If you're experiencing a mental health crisis, please contact a licensed therapist or local emergency services.
