@@ -49,7 +49,7 @@ This chatbot guides users through the **PHQ-9 questionnaire**, a standard clinic
 
 | Component         | Technology                 |
 |:----------------:|:--------------------------:|
-| Language Model   | `Vistral 7B`               |
+| Language Model   | `Vistral-7B-Chat`               |
 | Backend          | `Python`, `FastAPI`        |
 | Frontend         | `Html`, `Css`              |
 
@@ -72,19 +72,30 @@ Open your browser and visit: [http://localhost:8000](http://localhost:8000)
 ## 📁 Project Structure
 
 ```
-chatbot-mental-checkin/
+your_project/
+├── data copy/                     # Temporary folder for copied or backup data
+├── logs/                          # Stores application logs (e.g., user sessions, errors)
+├── result/run                     # Stores model output for each run (e.g., result_001.json)
+├── src/                           # Main source code for the system (logic, AI, processing)
+│   ├── __init__.py               
+│   ├── executive.py               # Controls and coordinates chatbot conversation flow
+│   ├── predict.py                 # Manage real-time conversation and save results to CSV
+│   ├── prompts.py                 # Contains prompts for the LLM (e.g., VistralChatbot), PHQ-9 questions
+│   ├── utils.py                   # Utility functions for model loading, conversation handling, etc.
+│   └── end.py                     # Calculates and evaluates scores at the end of a test
+├── static/                        # Static files (CSS, JS, images) for the web interface
+├── templates/                     # HTML templates 
+├── .gitignore                     
+├── analyse.py                      # Analyzes user results after completing the questionnaire
+├── main.py                        # Entry point to run the Flask web application
+├── patient_infor.txt              # Temporary storage for patient information during a session
 │
-├── app/
-│   ├── main.py              # FastAPI app
-│   ├── dialogue_engine.py   # Conversation logic
-│   ├── phq9.py              # PHQ-9 logic & scoring
-│   ├── prompts/             # Prompt templates
-│   ├── storage.py           # Logs (if enabled)
+├── predict.py                     # Process data from CSV, predict, and save to CSV
 │
-├── frontend/                # Streamlit UI (optional)
-├── demo/                    # Demo assets (GIF, screenshots)
-├── requirements.txt
-└── README.md
+├── readme.md                      # Project documentation (overview, setup, usage)
+│
+└── requirement.txt                # List of required Python packages (install via `pip install -r`)
+
 ```
 
 ---
